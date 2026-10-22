@@ -136,6 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <a href="/#nosaltres" className="footer__link">Valors</a>
                 <a href="/#contacte" className="footer__link">Uneix-te</a>
                 <a href="/#contractacions" className="footer__link">Contractacions</a>
+                <a href="/agenda" className="footer__link">Agenda</a>
               </div>
             </div>
             <div className="footer__bottom">
