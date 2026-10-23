@@ -53,15 +53,22 @@ export default function HomePage() {
                   <a href="/agenda" className="btn btn--outlined-light">Agenda</a>
                 </div>
               </div>
-              <aside className="widget" id="hero-widget" aria-label="Destacats" hidden>
-                <div className="widget__header">
-                  <span className="material-symbols-outlined widget__header-icon">bolt</span>
-                  <span className="widget__header-label">Destacats</span>
-                  <button className="widget__close" id="widget-close" aria-label="Tancar">
-                    <span className="material-symbols-outlined">close</span>
-                  </button>
+              <aside className="widget widget--newsletter" aria-label="Newsletter">
+                <div className="widget__newsletter-body">
+                  <span className="material-symbols-outlined widget__newsletter-icon">mail</span>
+                  <p className="widget__newsletter-hook">No et perdis cap novetat</p>
+                  <p className="widget__newsletter-text">Notícies i agenda al teu correu, sense soroll.</p>
+                  <form className="widget__newsletter-form" id="newsletter-form" action="/api/subscribe" method="POST">
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" className="widget__newsletter-honeypot" aria-hidden="true" />
+                    <div className="widget__newsletter-field">
+                      <input type="email" name="email" id="newsletter-email" className="widget__newsletter-input" placeholder="El teu email" required />
+                      <button type="submit" id="newsletter-submit" className="widget__newsletter-btn" aria-label="Subscriu-te">
+                        <span className="material-symbols-outlined">arrow_forward</span>
+                      </button>
+                    </div>
+                    <div className="form-feedback" id="newsletter-feedback" aria-live="polite"></div>
+                  </form>
                 </div>
-                <ul className="widget__list" id="widget-list"></ul>
               </aside>
             </div>
           </div>

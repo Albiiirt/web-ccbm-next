@@ -66,14 +66,6 @@ async function loadDiades() {
         });
 }
 
-async function loadWidget() {
-    const json = await strapiFetch('/api/destacats?sort=date:asc&pagination[pageSize]=100');
-    if (!json) return null;
-    return (json.data || []).map(function(w) {
-        return { icon: w.icon, title: w.title, description: w.description, date: w.date };
-    });
-}
-
 async function loadNews() {
     const json = await strapiFetch('/api/news-items?sort=date:desc&populate=image&pagination[pageSize]=100');
     if (!json) return null;
@@ -382,40 +374,18 @@ function initLightbox(images) {
     return { show };
 }
 
-/* ── WIDGET DESTACATS ── */
+/* ── NEWSLETTER (widget del hero) ── */
 
-async function initWidget() {
-    const widget   = document.getElementById('hero-widget');
-    const list     = document.getElementById('widget-list');
-    const closeBtn = document.getElementById('widget-close');
-    if (!widget || !list) return;
-
-    const data = await loadWidget();
-    if (!data || data.length === 0) return;
-
-    list.innerHTML = data.map(function(item) {
-        const dateStr = item.date
-            ? new Date(item.date).toLocaleDateString('ca-ES', { day: 'numeric', month: 'short', year: 'numeric' })
-            : null;
-        return '<li class="widget__item">' +
-            '<div class="widget__icon-wrap">' +
-                '<span class="material-symbols-outlined">' + escHtml(item.icon) + '</span>' +
-            '</div>' +
-            '<div class="widget__text">' +
-                '<p class="widget__title">' + escHtml(item.title) + '</p>' +
-                (item.description ? '<p class="widget__desc">' + escHtml(item.description) + '</p>' : '') +
-                (dateStr ? '<p class="widget__date"><span class="material-symbols-outlined">calendar_today</span>' + dateStr + '</p>' : '') +
-            '</div>' +
-        '</li>';
-    }).join('');
-
-    if (sessionStorage.getItem('widget-closed') !== '1') {
-        widget.hidden = false;
-    }
-    closeBtn.addEventListener('click', function() {
-        widget.hidden = true;
-        sessionStorage.setItem('widget-closed', '1');
-    });
+const newsletterForm = document.getElementById('newsletter-form');
+if (newsletterForm) {
+    handleForm(
+        newsletterForm,
+        document.getElementById('newsletter-feedback'),
+        document.getElementById('newsletter-submit'),
+        '✓ Gràcies! Revisa el teu correu per confirmar la subscripció.',
+        '',
+        '<span class="material-symbols-outlined">arrow_forward</span>'
+    );
 }
 
 /* ── NEWS MODAL ── */
@@ -1214,7 +1184,6 @@ initDiadaGran();
 initDiades();
 initAgendaDiades();
 initAbout();
-initWidget();
 // Secció Notícies eliminada (2026-10-21)
 // initGalleryMosaic(); // secció Galeria oculta temporalment (2026-10-04)
 initEquip();
