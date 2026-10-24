@@ -66,6 +66,12 @@ export default function HomePage() {
                         <span className="material-symbols-outlined">arrow_forward</span>
                       </button>
                     </div>
+                    <div className="field field--checkbox widget__newsletter-checkbox">
+                      <label className="checkbox__label">
+                        <input type="checkbox" name="terms" id="newsletter-terms" required />
+                        <span>He llegit i accepto la <a href="/legal" target="_blank">política de privacitat</a></span>
+                      </label>
+                    </div>
                     <div className="form-feedback" id="newsletter-feedback" aria-live="polite"></div>
                   </form>
                 </div>
