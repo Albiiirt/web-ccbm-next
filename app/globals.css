@@ -1459,7 +1459,7 @@ select.field__input:not([value=""]):not([data-empty="true"]) + .field__label {
 
 /* ── WIDGET DESTACATS ── */
 .widget {
-    width: 280px;
+    width: 420px;
     flex-shrink: 0;
     background: rgba(255, 255, 255, .10);
     backdrop-filter: blur(16px) saturate(1.4);
