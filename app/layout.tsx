@@ -70,11 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="top-bar__title">CCBM</span>
             </a>
             <nav className="top-bar__nav" id="main-nav" aria-label="Navegació principal">
-              <a href="/#diades" className="nav-link">Diades</a>
-              <a href="/#nosaltres" className="nav-link">Nosaltres</a>
-              <a href="/#equip" className="nav-link">Equip</a>
-              <a href="/#contractacions" className="nav-link">Contractacions</a>
-              <a href="/#contacte" className="nav-link">Contacte</a>
+              <a href="/" className="nav-link">Inici</a>
+              <a href="/agenda" className="nav-link">Agenda</a>
+              <a href="/contacte" className="nav-link">Contacte</a>
             </nav>
             <button className="nav-toggle" id="nav-toggle" aria-label="Obrir menú" aria-expanded="false" aria-controls="mobile-drawer">
               <span className="material-symbols-outlined">menu</span>
@@ -92,19 +90,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="material-symbols-outlined">close</span>
             </button>
           </div>
-          <a href="/#diades" className="mobile-drawer__link">
-            <span className="material-symbols-outlined">calendar_month</span>Diades
+          <a href="/" className="mobile-drawer__link">
+            <span className="material-symbols-outlined">home</span>Inici
           </a>
-          <a href="/#nosaltres" className="mobile-drawer__link">
-            <span className="material-symbols-outlined">groups</span>Nosaltres
+          <a href="/agenda" className="mobile-drawer__link">
+            <span className="material-symbols-outlined">calendar_month</span>Agenda
           </a>
-          <a href="/#equip" className="mobile-drawer__link">
-            <span className="material-symbols-outlined">account_tree</span>Equip
-          </a>
-          <a href="/#contractacions" className="mobile-drawer__link">
-            <span className="material-symbols-outlined">request_quote</span>Contractacions
-          </a>
-          <a href="/#contacte" className="mobile-drawer__link">
+          <a href="/contacte" className="mobile-drawer__link">
             <span className="material-symbols-outlined">mail</span>Contacte
           </a>
         </nav>
@@ -125,18 +117,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </a>
                 </div>
               </div>
-              <div className="footer__nav">
-                <h3 className="footer__heading">Navegació</h3>
-                <a href="/#nosaltres" className="footer__link">Nosaltres</a>
-                <a href="/#contacte" className="footer__link">Contacte</a>
-              </div>
-              <div className="footer__nav">
-                <h3 className="footer__heading">La colla</h3>
-                <a href="/#nosaltres" className="footer__link">Història</a>
-                <a href="/#nosaltres" className="footer__link">Valors</a>
-                <a href="/#contacte" className="footer__link">Uneix-te</a>
-                <a href="/#contractacions" className="footer__link">Contractacions</a>
-                <a href="/agenda" className="footer__link">Agenda</a>
+              <div className="footer__newsletter">
+                <h3 className="footer__heading">Newsletter</h3>
+                <p className="footer__newsletter-text">No et perdis cap novetat. Notícies i agenda al teu correu, sense soroll.</p>
+                <form className="footer__newsletter-form" id="newsletter-form-footer" action="/api/subscribe" method="POST">
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" className="footer__newsletter-honeypot" aria-hidden="true" />
+                  <div className="footer__newsletter-field">
+                    <input type="email" name="email" id="newsletter-email-footer" className="footer__newsletter-input" placeholder="El teu email" required />
+                    <button type="submit" id="newsletter-submit-footer" className="footer__newsletter-btn" aria-label="Subscriu-te">
+                      <span className="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                  </div>
+                  <div className="field field--checkbox footer__newsletter-checkbox">
+                    <label className="checkbox__label">
+                      <input type="checkbox" name="terms" id="newsletter-terms-footer" required />
+                      <span>He llegit i accepto la <a href="/legal" target="_blank">política de privacitat</a></span>
+                    </label>
+                  </div>
+                  <div className="form-feedback" id="newsletter-feedback-footer" aria-live="polite"></div>
+                </form>
               </div>
             </div>
             <div className="footer__bottom">

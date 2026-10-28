@@ -374,7 +374,7 @@ function initLightbox(images) {
     return { show };
 }
 
-/* ── NEWSLETTER (widget del hero) ── */
+/* ── NEWSLETTER (widget del hero + footer) ── */
 
 const newsletterForm = document.getElementById('newsletter-form');
 if (newsletterForm) {
@@ -382,6 +382,18 @@ if (newsletterForm) {
         newsletterForm,
         document.getElementById('newsletter-feedback'),
         document.getElementById('newsletter-submit'),
+        '✓ Gràcies! Revisa el teu correu per confirmar la subscripció.',
+        '',
+        '<span class="material-symbols-outlined">arrow_forward</span>'
+    );
+}
+
+const newsletterFormFooter = document.getElementById('newsletter-form-footer');
+if (newsletterFormFooter) {
+    handleForm(
+        newsletterFormFooter,
+        document.getElementById('newsletter-feedback-footer'),
+        document.getElementById('newsletter-submit-footer'),
         '✓ Gràcies! Revisa el teu correu per confirmar la subscripció.',
         '',
         '<span class="material-symbols-outlined">arrow_forward</span>'
@@ -1146,7 +1158,8 @@ async function initEquip() {
 /* ── ACTIVE NAV ── */
 function initActiveNav() {
     var navLinks = document.querySelectorAll('.nav-link[href^="#"], .mobile-drawer__link[href^="#"]');
-    var sectionIds = ['diades', 'noticias', 'nosaltres', 'equip', 'historia', /* 'galeria', (secció oculta temporalment, 2026-10-04) */ 'contractacions', 'contacte'];
+    // 'contractacions' i 'contacte' ara viuen a /contacte, no a la home (2026-10-28)
+    var sectionIds = ['diades', 'noticias', 'nosaltres', 'equip', 'historia' /* , 'galeria' (secció oculta temporalment, 2026-10-04) */];
     var activeId = null;
     var ticking = false;
 
