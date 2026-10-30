@@ -1333,6 +1333,10 @@ button { cursor: pointer; font-family: inherit; }
 .field__input:focus {
     border-color: var(--md-primary);
 }
+.field__input:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 2px;
+}
 .field__label {
     position: absolute;
     left: 12px;
@@ -1558,9 +1562,12 @@ select.field__input:not([value=""]):not([data-empty="true"]) + .field__label {
 }
 .widget__newsletter-input::placeholder { color: var(--md-on-surface-variant); opacity: .7; }
 .widget__newsletter-input:focus {
-    outline: none;
     border-color: var(--md-primary);
     background: var(--md-surface);
+}
+.widget__newsletter-input:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 2px;
 }
 .widget__newsletter-btn {
     position: absolute;
@@ -1687,9 +1694,12 @@ select.field__input:not([value=""]):not([data-empty="true"]) + .field__label {
 }
 .footer__newsletter-input::placeholder { color: rgba(255,255,255,.45); }
 .footer__newsletter-input:focus {
-    outline: none;
     border-color: var(--md-primary);
     background: rgba(255,255,255,.12);
+}
+.footer__newsletter-input:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 2px;
 }
 .footer__newsletter-btn {
     position: absolute;
