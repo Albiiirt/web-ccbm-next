@@ -47,7 +47,7 @@ export default function HomePage() {
               <div className="hero__text">
                 <p className="hero__eyebrow">Benvinguts a la</p>
                 <h1 className="hero__title">Colla Castellera<br /><em>del Baix Montseny</em></h1>
-                <p className="hero__subtitle">Cultura, compromís i passió <br />per una tradició que ens uneix.</p>
+                <p className="hero__subtitle">Cultura, compromís i passió per una tradició que ens uneix.</p>
                 <div className="hero__actions">
                   <a href="/contacte" className="btn btn--filled">Uneix-te</a>
                   <a href="/agenda" className="btn btn--outlined-light">Agenda</a>
